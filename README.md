@@ -10,4 +10,13 @@ JSP
 
 Character Encoding 
 ==================
-The answer for the SO question [How to get UTF-8 working in java webapps?](http://stackoverflow.com/a/138950/43597) summarizes it pretty well.
+The answer for the SO question [How to get UTF-8 working in java webapps?](http://stackoverflow.com/a/138950/43597) summarizes it pretty well. Other additions below:
+
+JSPs need the `<%@ pageEncoding="UTF-8" %>` property for all JSPs. A DRY solution is to add the following to `web.xml`:
+
+    <jsp-config>
+      <jsp-property-group>
+        <url-pattern>*.jsp</url-pattern>
+        <page-encoding>UTF-8</page-encoding>
+      </jsp-property-group>
+    </jsp-config>
